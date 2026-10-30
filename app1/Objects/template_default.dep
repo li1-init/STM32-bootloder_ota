@@ -1,6 +1,6 @@
 Dependencies for Project 'template', Target 'default': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\user\main.c)(0x6AE46BBE)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\user\main.c)(0x6AE48B8A)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
 I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
@@ -35,8 +35,9 @@ I (.\mydrive\my_usart.h)(0x6AE46B54)
 I (D:\keil\coure\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (D:\keil\coure\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\coure\ARM\ARMCC\include\string.h)(0x6025237E)
-I (.\mycode\bootloader.h)(0x6AE456AA)
-F (.\user\system_stm32f10x.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+I (.\mycode\struct_init.h)(0x6AE457FC)
+I (.\mycode\bootloader.h)(0x6AE48E21)
+F (.\user\system_stm32f10x.c)(0x6AE48775)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
 I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
@@ -906,9 +907,9 @@ I (.\mydrive\my_usart.h)(0x6AE46B54)
 I (D:\keil\coure\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (D:\keil\coure\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\coure\ARM\ARMCC\include\string.h)(0x6025237E)
-I (mycode\bootloader.h)(0x6AE456AA)
+I (mycode\bootloader.h)(0x6AE48E21)
 I (mycode\struct_init.h)(0x6AE457FC)
-F (.\mycode\bootloader.h)(0x6AE456AA)()
+F (.\mycode\bootloader.h)(0x6AE48E21)()
 F (.\mydrive\my_usart.c)(0x6AE46B7E)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\my_usart.o --omf_browse .\objects\my_usart.crf --depend .\objects\my_usart.d)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)

@@ -3,6 +3,7 @@
 #include "stdio.h"
 #include "bootloader.h"
 #include "struct_init.h"
+#include "stm32f10x_flash.h"
 OTA_t OTA_Info = {0};
 
 /**
@@ -11,60 +12,104 @@ OTA_t OTA_Info = {0};
 typedef void (*jumpapp_fun)(void);
 
 /**
- * @brief  bootloader跳转到a分区app程序
- * @retval 无
+ * @brief  检查某个分区起始处是否是合法的程序镜像
+ * @param  base: 分区起始地址
+ * @param  size: 分区大小
+ * @retval 1=合法 0=空白/损坏
  */
-/**
- * @brief 跳转到应用程序主函数
- * @note 此函数实现从bootloader跳转到用户应用程序的功能，完整复刻了芯片冷上电流程
- * @warning 跳转前会进行安全校验，确保应用程序栈地址合法，否则会进入死循环
- */
-void jump_to_app(void)
+uint8_t app_is_valid(uint32_t base, uint32_t size)
 {
+    uint32_t msp_value  = *(volatile uint32_t *)base;
+    uint32_t reset_addr = *(volatile uint32_t *)(base + 4u);
 
-    //========步骤1：读取app向量表前两项========
-    // 向量表偏移0：app初始栈顶msp
-    uint32_t app_msp_value = *(volatile uint32_t *)stm32_a_saddr;
-    // 向量表偏移+4：app复位入口reset_handler地址
-    uint32_t app_reset_addr = *(volatile uint32_t *)(stm32_a_saddr + 4);
-
-    //========步骤2：安全校验栈地址是否合法========
-    // 栈顶必须落在单片机sram区间 0x20000000~0x20004fff
-    if (app_msp_value < sram_begin || app_msp_value > sram_end)
+    /* 栈顶必须在 SRAM 区间，且 4 字节对齐 */
+    if ((msp_value & 3u) != 0u || msp_value < sram_begin || msp_value > sram_end)
     {
-        // app固件损坏，栈地址非法，放弃跳转，死循环卡住
+        return 0;
+    }
+    /* Reset_Handler 必须落在本分区内，且 Thumb 位为 1 */
+    if ((reset_addr & 1u) == 0u || reset_addr < base || reset_addr >= base + size)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+/**
+ * @brief  跳转到指定分区（APP1 / APP2 / Factory）
+ * @param  base: 分区起始地址
+ * @param  size: 分区大小
+ * @note   关中断 -> 清 NVIC -> RCC_DeInit -> 停 SysTick -> 设 VTOR -> 设 MSP -> 开中断 -> 跳 Reset
+ */
+void jump_to_addr(uint32_t base, uint32_t size)
+{
+    uint32_t app_msp_value  = *(volatile uint32_t *)base;
+    uint32_t app_reset_addr = *(volatile uint32_t *)(base + 4u);
+    jumpapp_fun app_reset_handler;
+
+    if (!app_is_valid(base, size))
+    {
+        u1_printf("jump_to_addr: 0x%08lX vec invalid MSP=0x%08lX RST=0x%08lX\r\n",
+                  (unsigned long)base,
+                  (unsigned long)app_msp_value,
+                  (unsigned long)app_reset_addr);
         while (1)
             ;
     }
 
-    //========步骤3：跳转前清理，防止外设、中断残留干扰app========
-    __disable_irq(); // 关闭全局中断，跳转期间禁止中断触发
+    u1_printf("jump_to_addr: base=0x%08lX MSP=0x%08lX RST=0x%08lX\r\n",
+              (unsigned long)base,
+              (unsigned long)app_msp_value,
+              (unsigned long)app_reset_addr);
 
-    //【必须新增】清除所有NVIC中断使能 & 清除挂起中断标志
-    NVIC->ICER[0] = 0xFFFFFFFF;    
+    /* 跳转前把串口发完，再加 10ms 空转，防止最后几个字节因为 RCC_DeInit 被截断 */
+    __disable_irq();
+    for (volatile uint32_t i = 0; i < 200000u; i++)
+    {
+    }
+    __enable_irq();
+
+    __disable_irq();
+
+    NVIC->ICER[0] = 0xFFFFFFFF;
     NVIC->ICPR[0] = 0xFFFFFFFF;
-    
-    RCC_DeInit(); // 标准库函数，复位所有外设时钟回到上电默认状态
 
-    // 清空systick滴答定时器，清除boot延时定时器残留
+    RCC_DeInit();
+
     SysTick->CTRL = 0x00;
     SysTick->LOAD = 0x00;
-    SysTick->VAL = 0x00;
-    
-    __enable_irq();                 //✅【关键修复】放开全局中断！清除PRIMASK锁死！
+    SysTick->VAL  = 0x00;
 
-    //========步骤4：复刻芯片冷上电硬件流程========
-    __set_MSP(app_msp_value); // 手动设置主栈指针msp，等价于上电硬件读取0地址设置sp
+    SCB->VTOR = base;
+    __DSB();
+    __ISB();
 
-    jumpapp_fun app_reset_handler; // 定义函数指针，保存app复位入口地址
+    __set_MSP(app_msp_value);
+    __enable_irq();
 
-    app_reset_handler = (jumpapp_fun)app_reset_addr; // 复位入口地址赋值给函数指针
+    app_reset_handler = (jumpapp_fun)app_reset_addr;
+    app_reset_handler();
 
-    app_reset_handler(); // 跳转，修改pc寄存器，进入app程序，不再返回boot
-
-    // 防护代码，正常永远不会运行到此
     while (1)
         ;
+}
+
+/**
+ * @brief  bootloader跳转到a分区app程序
+ * @retval 无
+ */
+void jump_to_app(void)
+{
+    jump_to_addr(stm32_a_saddr, stm32_a_size);
+}
+
+/**
+ * @brief  bootloader跳转到factory救砖程序
+ * @retval 无
+ */
+void jump_to_factory(void)
+{
+    jump_to_addr(stm32_f_saddr, stm32_f_size);
 }
 
 extern volatile uint32_t now;

@@ -35,4 +35,5 @@
 .\objects\main.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\main.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: .\mycode\struct_init.h
 .\objects\main.o: .\mycode\bootloader.h

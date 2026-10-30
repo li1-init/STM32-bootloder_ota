@@ -16,23 +16,34 @@
  * @brief 定义bootloader的地址
  *
  */
-#define stm32_flash_saddr 0x08000000u // FLASH起始地址
-#define stm32_page_size 2048u         // STM32‑F1每页大小：2048字节！！
-#define stm32_page_num 64u            // 总页数，128KB / 2048 = 64页
+/*
+ * 64KB Flash 三分区（STM32F103C8T6，真实擦除页 1KB）
+ *   Boot    0x08000000 ~ 0x08002FFF  12KB
+ *   Factory 0x08003000 ~ 0x08004FFF   8KB
+ *   APP1    0x08005000 ~ 0x0800A7FF  22KB
+ *   APP2    0x0800A800 ~ 0x0800FFFF  22KB（预留）
+ *
+ * 该地址必须与 Bootloader 和 APP1 的 Keil IROM1 起始地址一致。
+ */
+#define stm32_flash_saddr 0x08000000u
+#define stm32_page_size   1024u
+#define stm32_page_num    64u
 
-#define stm32_b_page_num 8u // B区页数，8页
+#define stm32_b_saddr     0x08000000u
+#define stm32_b_size      0x3000u
+#define stm32_b_eaddr     (stm32_b_saddr + stm32_b_size - 1u)
 
-#define stm32_a_page_num (stm32_page_num - stm32_b_page_num)                     // A区页数，56页
-#define stm32_a_start_page stm32_b_page_num                                      // A区起始页，第8页
-#define stm32_a_saddr (stm32_flash_saddr + stm32_a_start_page * stm32_page_size) // A区起始地址  //A区起始地址：0x08000000 + 8*2048 = 0x08004000
+#define stm32_f_saddr     0x08003000u
+#define stm32_f_size      0x2000u
+#define stm32_f_eaddr     (stm32_f_saddr + stm32_f_size - 1u)
 
-// 可选补充边界，用于ota烧录时判断地址越界
-#define stm32_b_eaddr (stm32_flash_saddr + stm32_b_page_num * stm32_page_size - 1u)
-#define stm32_a_eaddr (stm32_a_saddr + stm32_a_page_num * stm32_page_size - 1u)
+#define stm32_a_saddr     0x08005000u
+#define stm32_a_size      0x5800u
+#define stm32_a_eaddr     (stm32_a_saddr + stm32_a_size - 1u)
 
-// sram范围 stm32f103c8t6
+/* SRAM 20KB，栈顶可以等于 0x20005000 */
 #define sram_begin 0x20000000u
-#define sram_end 0x20004fffu
+#define sram_end   0x20005000u
 
 /**
  * @brief 定义OTA相关的标志位
@@ -42,7 +53,7 @@
 #define OTA_W25Q_ADDR 0x000000U // W25Q64存放标志的地址
 #define ota_magic        0x55AA5A5AU  //魔数的标志
 
-typedef __packed struct
+typedef __PACKED_STRUCT
 {
     uint32_t magic;          //魔数，固定 0x55AA5A5A
     uint32_t OTA_flag;       //升级标志 ota_flag_set=0xAABB1122u
