@@ -27,7 +27,8 @@
 ".\objects\stm32f10x_usart.o"
 ".\objects\stm32f10x_wwdg.o"
 ".\objects\struct_init.o"
-".\objects\bootloader.o"
+".\objects\factory_xmodem.o"
+".\objects\app_update.o"
 ".\objects\my_usart.o"
 --library_type=microlib --strict --scatter ".\Objects\template.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

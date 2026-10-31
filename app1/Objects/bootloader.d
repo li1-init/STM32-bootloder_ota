@@ -31,7 +31,6 @@
 .\objects\bootloader.o: .\std_periph_driver\inc\stm32f10x_usart.h
 .\objects\bootloader.o: .\std_periph_driver\inc\stm32f10x_wwdg.h
 .\objects\bootloader.o: .\mydrive\my_usart.h
-.\objects\bootloader.o: .\mydrive\my_usart.h
 .\objects\bootloader.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\bootloader.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\bootloader.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\string.h

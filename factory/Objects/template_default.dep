@@ -1,6 +1,6 @@
 Dependencies for Project 'template', Target 'default': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\user\main.c)(0x6AE48B92)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\user\main.c)(0x6AE5BBE3)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
 I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
@@ -31,13 +31,14 @@ I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
-I (.\mydrive\my_usart.h)(0x6AE46B54)
+I (.\mydrive\my_usart.h)(0x6AE5CA59)
 I (D:\keil\coure\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (D:\keil\coure\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\coure\ARM\ARMCC\include\string.h)(0x6025237E)
-I (.\mycode\struct_init.h)(0x6AE457FC)
-I (.\mycode\bootloader.h)(0x6AE487AD)
-F (.\user\system_stm32f10x.c)(0x6AE48775)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+I (.\mycode\struct_init.h)(0x6AE5A517)
+I (.\mycode\bootloader.h)(0x6AE5D04C)
+I (.\mycode\factory_xmodem.h)(0x6AE5CA59)
+F (.\user\system_stm32f10x.c)(0x6AE5CA0D)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
 I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
@@ -69,7 +70,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\user\stm32f10x_it.h)(0x6AB3B3FF)()
-F (.\user\stm32f10x_it.c)(0x6AE344E9)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
+F (.\user\stm32f10x_it.c)(0x6AE344E9)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
 I (user\stm32f10x_it.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -103,7 +104,7 @@ I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\startup\startup_stm32f10x_md.s)(0x6AB3B3FF)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include--pd "__UVISION_VERSION SETA 537" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o .\objects\startup_stm32f10x_md.o --depend .\objects\startup_stm32f10x_md.d)
 F (.\std_periph_driver\inc\misc.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\misc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\misc.o --omf_browse .\objects\misc.crf --depend .\objects\misc.d)
+F (.\std_periph_driver\src\misc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\misc.o --omf_browse .\objects\misc.crf --depend .\objects\misc.d)
 I (.\std_periph_driver\inc\misc.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -136,7 +137,7 @@ I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)()
 F (.\std_periph_driver\inc\stm32f10x_adc.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_adc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_adc.o --omf_browse .\objects\stm32f10x_adc.crf --depend .\objects\stm32f10x_adc.d)
+F (.\std_periph_driver\src\stm32f10x_adc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_adc.o --omf_browse .\objects\stm32f10x_adc.crf --depend .\objects\stm32f10x_adc.d)
 I (.\std_periph_driver\inc\stm32f10x_adc.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -168,7 +169,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_bkp.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_bkp.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_bkp.o --omf_browse .\objects\stm32f10x_bkp.crf --depend .\objects\stm32f10x_bkp.d)
+F (.\std_periph_driver\src\stm32f10x_bkp.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_bkp.o --omf_browse .\objects\stm32f10x_bkp.crf --depend .\objects\stm32f10x_bkp.d)
 I (.\std_periph_driver\inc\stm32f10x_bkp.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -200,7 +201,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_can.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_can.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_can.o --omf_browse .\objects\stm32f10x_can.crf --depend .\objects\stm32f10x_can.d)
+F (.\std_periph_driver\src\stm32f10x_can.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_can.o --omf_browse .\objects\stm32f10x_can.crf --depend .\objects\stm32f10x_can.d)
 I (.\std_periph_driver\inc\stm32f10x_can.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -232,7 +233,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_cec.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_cec.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_cec.o --omf_browse .\objects\stm32f10x_cec.crf --depend .\objects\stm32f10x_cec.d)
+F (.\std_periph_driver\src\stm32f10x_cec.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_cec.o --omf_browse .\objects\stm32f10x_cec.crf --depend .\objects\stm32f10x_cec.d)
 I (.\std_periph_driver\inc\stm32f10x_cec.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -264,7 +265,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_crc.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_crc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_crc.o --omf_browse .\objects\stm32f10x_crc.crf --depend .\objects\stm32f10x_crc.d)
+F (.\std_periph_driver\src\stm32f10x_crc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_crc.o --omf_browse .\objects\stm32f10x_crc.crf --depend .\objects\stm32f10x_crc.d)
 I (.\std_periph_driver\inc\stm32f10x_crc.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -296,7 +297,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_dac.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_dac.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_dac.o --omf_browse .\objects\stm32f10x_dac.crf --depend .\objects\stm32f10x_dac.d)
+F (.\std_periph_driver\src\stm32f10x_dac.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_dac.o --omf_browse .\objects\stm32f10x_dac.crf --depend .\objects\stm32f10x_dac.d)
 I (.\std_periph_driver\inc\stm32f10x_dac.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -328,7 +329,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_dbgmcu.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_dbgmcu.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_dbgmcu.o --omf_browse .\objects\stm32f10x_dbgmcu.crf --depend .\objects\stm32f10x_dbgmcu.d)
+F (.\std_periph_driver\src\stm32f10x_dbgmcu.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_dbgmcu.o --omf_browse .\objects\stm32f10x_dbgmcu.crf --depend .\objects\stm32f10x_dbgmcu.d)
 I (.\std_periph_driver\inc\stm32f10x_dbgmcu.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -360,7 +361,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_dma.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_dma.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_dma.o --omf_browse .\objects\stm32f10x_dma.crf --depend .\objects\stm32f10x_dma.d)
+F (.\std_periph_driver\src\stm32f10x_dma.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_dma.o --omf_browse .\objects\stm32f10x_dma.crf --depend .\objects\stm32f10x_dma.d)
 I (.\std_periph_driver\inc\stm32f10x_dma.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -392,7 +393,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_exti.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_exti.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_exti.o --omf_browse .\objects\stm32f10x_exti.crf --depend .\objects\stm32f10x_exti.d)
+F (.\std_periph_driver\src\stm32f10x_exti.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_exti.o --omf_browse .\objects\stm32f10x_exti.crf --depend .\objects\stm32f10x_exti.d)
 I (.\std_periph_driver\inc\stm32f10x_exti.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -424,7 +425,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_flash.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_flash.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_flash.o --omf_browse .\objects\stm32f10x_flash.crf --depend .\objects\stm32f10x_flash.d)
+F (.\std_periph_driver\src\stm32f10x_flash.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_flash.o --omf_browse .\objects\stm32f10x_flash.crf --depend .\objects\stm32f10x_flash.d)
 I (.\std_periph_driver\inc\stm32f10x_flash.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -456,7 +457,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_fsmc.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_fsmc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_fsmc.o --omf_browse .\objects\stm32f10x_fsmc.crf --depend .\objects\stm32f10x_fsmc.d)
+F (.\std_periph_driver\src\stm32f10x_fsmc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_fsmc.o --omf_browse .\objects\stm32f10x_fsmc.crf --depend .\objects\stm32f10x_fsmc.d)
 I (.\std_periph_driver\inc\stm32f10x_fsmc.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -488,7 +489,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_gpio.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_gpio.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_gpio.o --omf_browse .\objects\stm32f10x_gpio.crf --depend .\objects\stm32f10x_gpio.d)
+F (.\std_periph_driver\src\stm32f10x_gpio.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_gpio.o --omf_browse .\objects\stm32f10x_gpio.crf --depend .\objects\stm32f10x_gpio.d)
 I (.\std_periph_driver\inc\stm32f10x_gpio.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -520,7 +521,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_i2c.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_i2c.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_i2c.o --omf_browse .\objects\stm32f10x_i2c.crf --depend .\objects\stm32f10x_i2c.d)
+F (.\std_periph_driver\src\stm32f10x_i2c.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_i2c.o --omf_browse .\objects\stm32f10x_i2c.crf --depend .\objects\stm32f10x_i2c.d)
 I (.\std_periph_driver\inc\stm32f10x_i2c.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -552,7 +553,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_iwdg.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_iwdg.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_iwdg.o --omf_browse .\objects\stm32f10x_iwdg.crf --depend .\objects\stm32f10x_iwdg.d)
+F (.\std_periph_driver\src\stm32f10x_iwdg.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_iwdg.o --omf_browse .\objects\stm32f10x_iwdg.crf --depend .\objects\stm32f10x_iwdg.d)
 I (.\std_periph_driver\inc\stm32f10x_iwdg.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -584,7 +585,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_pwr.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_pwr.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_pwr.o --omf_browse .\objects\stm32f10x_pwr.crf --depend .\objects\stm32f10x_pwr.d)
+F (.\std_periph_driver\src\stm32f10x_pwr.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_pwr.o --omf_browse .\objects\stm32f10x_pwr.crf --depend .\objects\stm32f10x_pwr.d)
 I (.\std_periph_driver\inc\stm32f10x_pwr.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -616,7 +617,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_rcc.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_rcc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_rcc.o --omf_browse .\objects\stm32f10x_rcc.crf --depend .\objects\stm32f10x_rcc.d)
+F (.\std_periph_driver\src\stm32f10x_rcc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_rcc.o --omf_browse .\objects\stm32f10x_rcc.crf --depend .\objects\stm32f10x_rcc.d)
 I (.\std_periph_driver\inc\stm32f10x_rcc.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -648,7 +649,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_rtc.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_rtc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_rtc.o --omf_browse .\objects\stm32f10x_rtc.crf --depend .\objects\stm32f10x_rtc.d)
+F (.\std_periph_driver\src\stm32f10x_rtc.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_rtc.o --omf_browse .\objects\stm32f10x_rtc.crf --depend .\objects\stm32f10x_rtc.d)
 I (.\std_periph_driver\inc\stm32f10x_rtc.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -680,7 +681,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_sdio.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_sdio.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_sdio.o --omf_browse .\objects\stm32f10x_sdio.crf --depend .\objects\stm32f10x_sdio.d)
+F (.\std_periph_driver\src\stm32f10x_sdio.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_sdio.o --omf_browse .\objects\stm32f10x_sdio.crf --depend .\objects\stm32f10x_sdio.d)
 I (.\std_periph_driver\inc\stm32f10x_sdio.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -712,7 +713,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_spi.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_spi.o --omf_browse .\objects\stm32f10x_spi.crf --depend .\objects\stm32f10x_spi.d)
+F (.\std_periph_driver\src\stm32f10x_spi.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_spi.o --omf_browse .\objects\stm32f10x_spi.crf --depend .\objects\stm32f10x_spi.d)
 I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -744,7 +745,7 @@ I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_tim.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_tim.o --omf_browse .\objects\stm32f10x_tim.crf --depend .\objects\stm32f10x_tim.d)
+F (.\std_periph_driver\src\stm32f10x_tim.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_tim.o --omf_browse .\objects\stm32f10x_tim.crf --depend .\objects\stm32f10x_tim.d)
 I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -776,7 +777,7 @@ I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_usart.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_usart.o --omf_browse .\objects\stm32f10x_usart.crf --depend .\objects\stm32f10x_usart.d)
+F (.\std_periph_driver\src\stm32f10x_usart.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_usart.o --omf_browse .\objects\stm32f10x_usart.crf --depend .\objects\stm32f10x_usart.d)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -808,7 +809,7 @@ I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 F (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)()
-F (.\std_periph_driver\src\stm32f10x_wwdg.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_wwdg.o --omf_browse .\objects\stm32f10x_wwdg.crf --depend .\objects\stm32f10x_wwdg.d)
+F (.\std_periph_driver\src\stm32f10x_wwdg.c)(0x6AB3B3FF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\stm32f10x_wwdg.o --omf_browse .\objects\stm32f10x_wwdg.crf --depend .\objects\stm32f10x_wwdg.d)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
@@ -839,7 +840,7 @@ I (.\std_periph_driver\inc\stm32f10x_sdio.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
-F (.\mycode\struct_init.c)(0x6AE46A92)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\struct_init.o --omf_browse .\objects\struct_init.crf --depend .\objects\struct_init.d)
+F (.\mycode\struct_init.c)(0x6AE5A51D)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\struct_init.o --omf_browse .\objects\struct_init.crf --depend .\objects\struct_init.d)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
 I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
@@ -870,9 +871,8 @@ I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
-I (mycode\struct_init.h)(0x6AE457FC)
-F (.\mycode\struct_init.h)(0x6AE457FC)()
-F (.\mycode\bootloader.c)(0x6AE4580A)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\bootloader.o --omf_browse .\objects\bootloader.crf --depend .\objects\bootloader.d)
+I (mycode\struct_init.h)(0x6AE5A517)
+F (.\mycode\factory_xmodem.c)(0x6AE5CFD9)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\factory_xmodem.o --omf_browse .\objects\factory_xmodem.crf --depend .\objects\factory_xmodem.d)
 I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
 I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
@@ -903,47 +903,80 @@ I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
 I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
-I (.\mydrive\my_usart.h)(0x6AE46B54)
+I (D:\keil\coure\ARM\ARMCC\include\string.h)(0x6025237E)
+I (.\mydrive\my_usart.h)(0x6AE5CA59)
+I (D:\keil\coure\ARM\ARMCC\include\stdarg.h)(0x60252376)
+I (D:\keil\coure\ARM\ARMCC\include\stdio.h)(0x60252374)
+I (mycode\struct_init.h)(0x6AE5A517)
+I (mycode\bootloader.h)(0x6AE5D04C)
+I (mycode\app_update.h)(0x6AE5D001)
+F (.\mycode\app_update.c)(0x6AE5D001)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\app_update.o --omf_browse .\objects\app_update.crf --depend .\objects\app_update.d)
+I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
+I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
+I (.\std_periph_driver\inc\cmsis_version.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\cmsis_compiler.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\cmsis_armcc.h)(0x6AB3B3FF)
+I (.\user\system_stm32f10x.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\misc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_adc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_bkp.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_can.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_cec.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_crc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_dac.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_dbgmcu.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_dma.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_exti.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_flash.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_fsmc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_gpio.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_i2c.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_iwdg.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_pwr.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_rcc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_rtc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_sdio.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
+I (mycode\app_update.h)(0x6AE5D001)
+F (.\mycode\struct_init.h)(0x6AE5A517)()
+F (.\mydrive\my_usart.c)(0x6AE5BAB3)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\my_usart.o --omf_browse .\objects\my_usart.crf --depend .\objects\my_usart.d)
+I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
+I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
+I (.\std_periph_driver\inc\cmsis_version.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\cmsis_compiler.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\cmsis_armcc.h)(0x6AB3B3FF)
+I (.\user\system_stm32f10x.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\misc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_adc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_bkp.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_can.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_cec.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_crc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_dac.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_dbgmcu.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_dma.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_exti.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_flash.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_fsmc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_gpio.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_i2c.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_iwdg.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_pwr.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_rcc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_rtc.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_sdio.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
+I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
+I (mydrive\my_usart.h)(0x6AE5CA59)
 I (D:\keil\coure\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (D:\keil\coure\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\coure\ARM\ARMCC\include\string.h)(0x6025237E)
-I (mycode\bootloader.h)(0x6AE487AD)
-I (mycode\struct_init.h)(0x6AE457FC)
-F (.\mycode\bootloader.h)(0x6AE487AD)()
-F (.\mydrive\my_usart.c)(0x6AE46B7E)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\std_periph_driver\inc -I .\user -I .\mycode -I .\mydrive --no-multibyte-chars-ID:\keil\pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD-o .\objects\my_usart.o --omf_browse .\objects\my_usart.crf --depend .\objects\my_usart.d)
-I (.\std_periph_driver\inc\stm32f10x.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\core_cm3.h)(0x6AB3B3FF)
-I (D:\keil\coure\ARM\ARMCC\include\stdint.h)(0x6A7C1677)
-I (.\std_periph_driver\inc\cmsis_version.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\cmsis_compiler.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\cmsis_armcc.h)(0x6AB3B3FF)
-I (.\user\system_stm32f10x.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\misc.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_adc.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_bkp.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_can.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_cec.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_crc.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_dac.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_dbgmcu.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_dma.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_exti.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_flash.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_fsmc.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_gpio.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_i2c.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_iwdg.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_pwr.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_rcc.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_rtc.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_sdio.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_spi.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_tim.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_usart.h)(0x6AB3B3FF)
-I (.\std_periph_driver\inc\stm32f10x_wwdg.h)(0x6AB3B3FF)
-I (mydrive\my_usart.h)(0x6AE46B54)
-I (D:\keil\coure\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\keil\coure\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\keil\coure\ARM\ARMCC\include\string.h)(0x6025237E)
-I (.\mycode\struct_init.h)(0x6AE457FC)
-F (.\mydrive\my_usart.h)(0x6AE46B54)()
+I (.\mycode\struct_init.h)(0x6AE5A517)
+F (.\mydrive\my_usart.h)(0x6AE5CA59)()

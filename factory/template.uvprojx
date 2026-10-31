@@ -276,8 +276,8 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x8003000</StartAddress>
-                <Size>0x2000</Size>
+                <StartAddress>0x8003800</StartAddress>
+                <Size>0x2800</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -314,7 +314,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>3</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -665,19 +665,19 @@
               <FilePath>.\mycode\struct_init.c</FilePath>
             </File>
             <File>
+              <FileName>factory_xmodem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mycode\factory_xmodem.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_update.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mycode\app_update.c</FilePath>
+            </File>
+            <File>
               <FileName>struct_init.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mycode\struct_init.h</FilePath>
-            </File>
-            <File>
-              <FileName>bootloader.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mycode\bootloader.c</FilePath>
-            </File>
-            <File>
-              <FileName>bootloader.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mycode\bootloader.h</FilePath>
             </File>
           </Files>
         </Group>

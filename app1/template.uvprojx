@@ -276,8 +276,8 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x8005000</StartAddress>
-                <Size>0x5800</Size>
+                <StartAddress>0x8006000</StartAddress>
+                <Size>0x4800</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -670,14 +670,9 @@
               <FilePath>.\mycode\struct_init.h</FilePath>
             </File>
             <File>
-              <FileName>bootloader.c</FileName>
+              <FileName>ota_info.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mycode\bootloader.c</FilePath>
-            </File>
-            <File>
-              <FileName>bootloader.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mycode\bootloader.h</FilePath>
+              <FilePath>.\mycode\ota_info.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -693,6 +688,16 @@
               <FileName>my_usart.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mydrive\my_usart.h</FilePath>
+            </File>
+            <File>
+              <FileName>MySPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mydrive\MySPI.c</FilePath>
+            </File>
+            <File>
+              <FileName>W25Q64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mydrive\W25Q64.c</FilePath>
             </File>
           </Files>
         </Group>

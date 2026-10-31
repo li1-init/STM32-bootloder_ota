@@ -31,7 +31,6 @@
 .\objects\my_usart.o: .\std_periph_driver\inc\stm32f10x_usart.h
 .\objects\my_usart.o: .\std_periph_driver\inc\stm32f10x_wwdg.h
 .\objects\my_usart.o: mydrive\my_usart.h
-.\objects\my_usart.o: mydrive\my_usart.h
 .\objects\my_usart.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\my_usart.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\my_usart.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\string.h

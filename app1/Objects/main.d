@@ -31,9 +31,10 @@
 .\objects\main.o: .\std_periph_driver\inc\stm32f10x_usart.h
 .\objects\main.o: .\std_periph_driver\inc\stm32f10x_wwdg.h
 .\objects\main.o: .\mydrive\my_usart.h
-.\objects\main.o: .\mydrive\my_usart.h
 .\objects\main.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\main.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\string.h
 .\objects\main.o: .\mycode\struct_init.h
 .\objects\main.o: .\mycode\bootloader.h
+.\objects\main.o: .\mydrive\W25Q64.h
+.\objects\main.o: .\mycode\ota_info.h

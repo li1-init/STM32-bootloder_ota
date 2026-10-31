@@ -30,3 +30,4 @@
 .\objects\myspi.o: .\std_periph_driver\inc\stm32f10x_tim.h
 .\objects\myspi.o: .\std_periph_driver\inc\stm32f10x_usart.h
 .\objects\myspi.o: .\std_periph_driver\inc\stm32f10x_wwdg.h
+.\objects\myspi.o: mydrive\MySPI.h

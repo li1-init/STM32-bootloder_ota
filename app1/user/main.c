@@ -2,20 +2,32 @@
 #include "my_usart.h"
 #include "struct_init.h"
 #include "stdio.h"
+#include "string.h"
 #include "bootloader.h"
-#include "stdint.h"
+#include "W25Q64.h"
+#include "ota_info.h"
 
 /*
- * 板上 LED 接法：
- *   PC13 为低 -> LED 亮（灌电流接法，江协 / 最小系统板常见）
- *   如果板上是反过来的，把 LED_ON_LEVEL 改成 0x01u
+ * ===== APP v1.0.0 (SLOT A @0x08005000) =====
+ *
+ * 正常业务程序（不含任何下载协议）。
+ *
+ * 升级方式：Bootloader 菜单 -> 串口 XMODEM -> W25Q64 暂存区 -> 置 flag -> 复位
+ *            -> Boot 校验 CRC32 -> 擦 APP -> 搬运 -> 跳新 APP
+ *
+ *   - LED 1000ms 心跳
+ *   - 'u' 打印当前版本和 W25Q64 里的 OTA 信息（只读）
  */
+
+#define APP_VERSION       OTA_VER(1, 0, 0)
+#define APP_VERSION_STR   "v1.0.0"
+
 #ifndef LED_ON_LEVEL
 #define LED_ON_LEVEL 0x00u
 #endif
 
 #define LED_OFF_LEVEL ((LED_ON_LEVEL == 0x00u) ? 0x01u : 0x00u)
-#define LED_TOGGLE_INTERVAL_MS 1000U
+#define LED_SLOW_MS 1000U
 
 static void pc13_write(uint8_t level)
 {
@@ -36,31 +48,51 @@ static void pc13_toggle(void)
 
 int main(void)
 {
-    SystemInit(); /* 初始化系统时钟 */
+    ota_info_t info;
+    uint32_t   last_toggle_time;
+    uint8_t    c;
 
-    /* 中断向量表搬到 APP1 起始地址 0x08005000 */
+    SystemInit();
+
     SCB->VTOR = stm32_a_saddr;
     __DSB();
     __ISB();
 
     gpio_initstruct();
-
-    /* 先熄灭：能区分“进了 APP 但没跑起来”和“APP 在跑但 LED 没闪” */
     pc13_write(LED_OFF_LEVEL);
-
     all_init();
 
-    uint32_t last_toggle_time = get_now();
+    u1_printf("\r\n########## APP " APP_VERSION_STR " (SLOT A) ##########\r\n");
+    u1_printf("VTOR = 0x%08lX\r\n", (unsigned long)SCB->VTOR);
+    u1_printf("upgrade: reset -> 'w' within 3s -> menu [2] XMODEM\r\n");
 
-    u1_printf("APP1 running | VTOR=0x%08lX\r\n", (unsigned long)SCB->VTOR);
+    if (ota_info_load(&info) == 0)
+    {
+        ota_info_dump(&info);
+    }
 
+    last_toggle_time = get_now();
     while (1)
     {
-        if ((get_now() - last_toggle_time) >= LED_TOGGLE_INTERVAL_MS)
+        c = usart_boot_getchar();
+        if (c == (uint8_t)'u')
+        {
+            u1_printf("\r\n--- APP " APP_VERSION_STR " ---\r\n");
+            if (ota_info_load(&info) == 0)
+            {
+                ota_info_dump(&info);
+            }
+            else
+            {
+                u1_printf("no valid OTA info\r\n");
+            }
+            u1_printf("----------------------\r\n");
+        }
+
+        if ((get_now() - last_toggle_time) >= LED_SLOW_MS)
         {
             last_toggle_time = get_now();
             pc13_toggle();
-            u1_printf("APP1 tick %lu\r\n", (unsigned long)get_now());
         }
     }
 }

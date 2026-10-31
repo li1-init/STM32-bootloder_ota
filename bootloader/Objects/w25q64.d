@@ -30,5 +30,7 @@
 .\objects\w25q64.o: .\std_periph_driver\inc\stm32f10x_tim.h
 .\objects\w25q64.o: .\std_periph_driver\inc\stm32f10x_usart.h
 .\objects\w25q64.o: .\std_periph_driver\inc\stm32f10x_wwdg.h
+.\objects\w25q64.o: D:\keil\coure\ARM\ARMCC\Bin\..\include\string.h
 .\objects\w25q64.o: mydrive\MySPI.h
 .\objects\w25q64.o: mydrive\W25Q64_Ins.h
+.\objects\w25q64.o: mydrive\W25Q64.h

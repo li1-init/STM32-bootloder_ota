@@ -885,12 +885,12 @@
     <File>
       <GroupNumber>4</GroupNumber>
       <FileNumber>54</FileNumber>
-      <FileType>5</FileType>
+      <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\mycode\struct_init.h</PathWithFileName>
-      <FilenameWithoutPath>struct_init.h</FilenameWithoutPath>
+      <PathWithFileName>.\mycode\factory_xmodem.c</PathWithFileName>
+      <FilenameWithoutPath>factory_xmodem.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -901,8 +901,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\mycode\bootloader.c</PathWithFileName>
-      <FilenameWithoutPath>bootloader.c</FilenameWithoutPath>
+      <PathWithFileName>.\mycode\app_update.c</PathWithFileName>
+      <FilenameWithoutPath>app_update.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -913,8 +913,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\mycode\bootloader.h</PathWithFileName>
-      <FilenameWithoutPath>bootloader.h</FilenameWithoutPath>
+      <PathWithFileName>.\mycode\struct_init.h</PathWithFileName>
+      <FilenameWithoutPath>struct_init.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
