@@ -1,0 +1,60 @@
+# ------------------------------
+# OS / editor
+# ------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.bak
+*~
+.vscode/
+.idea/
+
+# ------------------------------
+# Keil MDK build output
+# ------------------------------
+**/Objects/
+**/Listings/
+**/DebugConfig/
+**/RTE/
+**/*.uvguix.*
+**/*.uvoptx
+**/*.uvopt
+**/EventRecorderStub.scvd
+**/*.map
+**/*.axf
+**/*.hex
+**/*.bin
+**/*.o
+**/*.d
+**/*.crf
+**/*.dep
+**/*.lnp
+**/*.htm
+
+# ------------------------------
+# ESP-IDF build output
+# ------------------------------
+**/build/
+**/managed_components/
+**/dependencies.lock
+**/sdkconfig
+**/sdkconfig.old
+**/flash.log
+
+# ------------------------------
+# Generated tools / logs
+# ------------------------------
+compile_commands.json
+*.log
+*.pyc
+__pycache__/
+清理.cmd
+
+# ------------------------------
+# Local credentials and secrets
+# Never commit real WiFi or OneNET credentials.
+# ------------------------------
+**/app_secrets.h
+*.pem
+*.key
+*.p12

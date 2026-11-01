@@ -7,14 +7,14 @@
 #include "factory_xmodem.h"
 
 /*
- * Factory (brick recovery) image @ 0x08003000
+ * Factory (brick recovery) image @ 0x08003800
  *
  *  - Boot 发现 APP1 无效 / 搬运失败时会跳到这里
  *  - 通过串口 XMODEM 接收 APP bin，直接写片内 Flash
  *  - 不依赖 W25Q64，外部 Flash 坏了也能救
  *  - 收到 'r' 复位回 Boot；收到 'x' 进入 XMODEM 接收
  *
- * 独立中断向量表：SCB->VTOR = 0x08003000
+ * 独立中断向量表：SCB->VTOR = 0x08003800
  */
 
 #ifndef LED_ON_LEVEL

@@ -340,7 +340,7 @@
               <MiscControls>--no-multibyte-chars</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\std_periph_driver\inc;.\user;.\mycode;.\mydrive</IncludePath>
+              <IncludePath>..\common;..\common\drivers;.\std_periph_driver\inc;.\user;.\mycode;.\mydrive</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -677,7 +677,7 @@
             <File>
               <FileName>app_update.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mycode\app_update.c</FilePath>
+              <FilePath>..\common\app_update.c</FilePath>
             </File>
             <File>
               <FileName>bootloader.h</FileName>
@@ -687,7 +687,7 @@
             <File>
               <FileName>ota_info.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mycode\ota_info.c</FilePath>
+              <FilePath>..\common\ota_info.c</FilePath>
             </File>
             <File>
               <FileName>usart_boot_cmd.c</FileName>
@@ -715,14 +715,19 @@
               <FilePath>.\mydrive\my_usart.h</FilePath>
             </File>
             <File>
+              <FileName>my_usart2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mydrive\my_usart2.c</FilePath>
+            </File>
+            <File>
               <FileName>MySPI.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mydrive\MySPI.c</FilePath>
+              <FilePath>..\common\drivers\MySPI.c</FilePath>
             </File>
             <File>
               <FileName>W25Q64.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mydrive\W25Q64.c</FilePath>
+              <FilePath>..\common\drivers\W25Q64.c</FilePath>
             </File>
           </Files>
         </Group>

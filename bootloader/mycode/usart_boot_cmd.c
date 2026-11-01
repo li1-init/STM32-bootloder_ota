@@ -7,6 +7,7 @@
 #include "ota_info.h"
 #include "W25Q64.h"
 #include "xmodem.h"
+#include "my_usart2.h"
 #include "stm32f10x_flash.h"
 
 /*
@@ -45,8 +46,7 @@ void uasrt_command_suf(void)
     u1_printf("[2] show OTA info\r\n");
     u1_printf("[3] copy staging to APP\r\n");
     u1_printf("[4] erase APP page (test Factory)\r\n");
-    u1_printf("[5] power-loss test (reset during erase)\r\n");
-    u1_printf("[6] power-loss test (reset while writing)\r\n");
+    u1_printf("[7] wireless OTA (USART2 / ESP32)\r\n");
     u1_printf("[q] quit menu, continue boot\r\n");
     u1_printf("[r] reset\r\n");
 }
@@ -123,54 +123,6 @@ void boot_menu(void)
             delay_ms(1000u);
             NVIC_SystemReset();
         }
-        if (c == '5' || c == '6')
-        {
-            /* 掉电测试：需要 W25Q64 里已有待搬运固件（flag=SET） */
-            ota_info_t info;
-
-            if (ota_info_load(&info) != 0 || info.flag != ota_flag_set || info.fw_len == 0u)
-            {
-                u1_printf("No pending firmware: do XMODEM [1] first\r\n");
-            }
-            else
-            {
-                uint32_t mode = (c == '5') ? 1u : 2u;
-                uint32_t page;
-
-                u1_printf("Pages in fw: %lu (1KB each)\r\n",
-                          (unsigned long)((info.fw_len + 1023u) / 1024u));
-                u1_printf("Send page number to abort at (e.g. 2), or '0' to cancel\r\n> ");
-                {
-                    uint8_t d1 = rx_get_timeout(20000u);
-                    uint8_t d2 = rx_get_timeout(20000u);
-                    uint8_t d3 = rx_get_timeout(5000u);
-                    page = (uint32_t)(d1 - '0');
-                    if (d2 >= (uint8_t)'0' && d2 <= (uint8_t)'9')
-                    {
-                        page = page * 10u + (uint32_t)(d2 - '0');
-                    }
-                    if (d3 >= (uint8_t)'0' && d3 <= (uint8_t)'9')
-                    {
-                        page = page * 10u + (uint32_t)(d3 - '0');
-                    }
-                    u1_printf("page=%lu\r\n", (unsigned long)page);
-                }
-
-                if (page == 0u)
-                {
-                    u1_printf("cancelled\r\n");
-                }
-                else
-                {
-                    u1_printf("[PL-TEST] mode=%s page=%lu, resetting now\r\n",
-                              (mode == 1u) ? "ERASE" : "WRITE", (unsigned long)page);
-                    boot_set_powerloss_test(mode, page);
-                    /* 先复位回 Boot，让 Boot 正常流程触发搬运并命中钩子 */
-                    delay_ms(500u);
-                    NVIC_SystemReset();
-                }
-            }
-        }
         if (c == '3')
         {
             ota_info_t info;
@@ -185,6 +137,26 @@ void boot_menu(void)
             {
                 u1_printf("no pending firmware\r\n");
             }
+        }
+        if (c == '7')
+        {
+            uint32_t len = 0;
+            uint32_t crc = 0;
+
+            usart2_init();
+            u1_printf("Wireless OTA: USART2 ready, waiting ESP32\r\n");
+            xmodem_set_source(1u);
+            if (xmodem_receive(&len, &crc) == 0)
+            {
+                u1_printf("Reset in 1s, Bootloader will copy staging to APP\r\n");
+                delay_ms(1000u);
+                NVIC_SystemReset();
+            }
+            else
+            {
+                u1_printf("Wireless OTA failed\r\n");
+            }
+            xmodem_set_source(0u);
         }
         if (c == '1')
         {

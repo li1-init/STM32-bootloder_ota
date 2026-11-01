@@ -1,0 +1,26 @@
+# ESP32-S3 OTA Bridge 默认配置
+
+# ===================== Flash =====================
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+CONFIG_ESPTOOLPY_FLASHSIZE="8MB"
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
+CONFIG_ESPTOOLPY_FLASHMODE="dio"
+
+# ===================== CPU =====================
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ=240
+CONFIG_FREERTOS_HZ=100
+
+# ===================== 自定义分区表 =====================
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# ===================== TLS（OneNET 是 https）=====================
+CONFIG_MBEDTLS_CERTIFICATE_BUNDLE=y
+CONFIG_MBEDTLS_CERTIFICATE_BUNDLE_DEFAULT_FULL=y
+
+# ===================== 任务栈 =====================
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+
+# ===================== 日志 =====================
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y

@@ -108,15 +108,6 @@ void jump_to_factory(void)
 
 #define OTA_COPY_BUF_SIZE 1024u
 
-/* 掉电测试钩子：>0 时在第 N 个 1KB 写完/擦完时主动复位，模拟断电 */
-static volatile uint32_t s_pl_test_page = 0u;
-static volatile uint32_t s_pl_test_mode = 0u; /* 1=擦除中 2=写入中 */
-
-void boot_set_powerloss_test(uint32_t mode, uint32_t page)
-{
-    s_pl_test_mode = mode;
-    s_pl_test_page = page;
-}
 
 int boot_copy_staging_to_app(uint32_t fw_len, uint32_t fw_crc32)
 {
@@ -124,7 +115,6 @@ int boot_copy_staging_to_app(uint32_t fw_len, uint32_t fw_crc32)
     uint32_t offset = 0;
     uint32_t crc;
     uint32_t addr;
-    uint32_t page_no = 0u;
 
     if (fw_len == 0u || fw_len > stm32_a_size)
     {
@@ -151,18 +141,9 @@ int boot_copy_staging_to_app(uint32_t fw_len, uint32_t fw_crc32)
             u1_printf("Boot: erase fail 0x%08lX\r\n", (unsigned long)(stm32_a_saddr + addr));
             return -1;
         }
-        /* power-loss test hook: reset while erasing */
-        if (s_pl_test_mode == 1u && ++page_no == s_pl_test_page)
-        {
-            u1_printf("\r\n[PL-TEST] reset during ERASE page %lu\r\n", (unsigned long)page_no);
-            FLASH_Lock();
-            delay_ms(20u);
-            NVIC_SystemReset();
-        }
     }
 
     /* 2. read staging, program half-word */
-    page_no = 0u;
     while (offset < fw_len)
     {
         uint32_t chunk = (fw_len - offset > OTA_COPY_BUF_SIZE) ? OTA_COPY_BUF_SIZE : (fw_len - offset);
@@ -198,15 +179,6 @@ int boot_copy_staging_to_app(uint32_t fw_len, uint32_t fw_crc32)
         }
 
         offset += chunk;
-
-        /* power-loss test hook: reset while programming */
-        if (s_pl_test_mode == 2u && ++page_no == s_pl_test_page)
-        {
-            u1_printf("\r\n[PL-TEST] reset while PROGRAMMING page %lu\r\n", (unsigned long)page_no);
-            FLASH_Lock();
-            delay_ms(20u);
-            NVIC_SystemReset();
-        }
     }
 
     FLASH_Lock();

@@ -1,0 +1,60 @@
+#ifndef __PARTITION_LAYOUT_H
+#define __PARTITION_LAYOUT_H
+
+/*
+ * STM32F103C8T6 64KB Flash 统一分区表
+ *
+ * Boot     0x08000000 - 0x080037FF  14KB
+ * Factory  0x08003800 - 0x08005FFF  10KB
+ * APP1     0x08006000 - 0x0800A7FF  18KB
+ * APP2     0x0800A800 - 0x0800FFFF  22KB
+ *   - 0x0800A800 - 0x0800ABFF: APP 更新状态页，1KB
+ *   - 0x0800AC00 - 0x0800FFFF: APP2 固件预留区，21KB
+ *
+ * 所有 STM32 工程必须只引用本文件中的地址，禁止再复制一份常量。
+ */
+
+#define PARTITION_FLASH_BASE      0x08000000u
+#define PARTITION_PAGE_SIZE       1024u
+#define PARTITION_FLASH_PAGES     64u
+
+#define PARTITION_BOOT_START      (PARTITION_FLASH_BASE + 0x0000u)
+#define PARTITION_BOOT_SIZE       0x3800u
+#define PARTITION_BOOT_END        (PARTITION_BOOT_START + PARTITION_BOOT_SIZE - 1u)
+
+#define PARTITION_FACTORY_START   (PARTITION_FLASH_BASE + 0x3800u)
+#define PARTITION_FACTORY_SIZE    0x2800u
+#define PARTITION_FACTORY_END     (PARTITION_FACTORY_START + PARTITION_FACTORY_SIZE - 1u)
+
+#define PARTITION_APP1_START      (PARTITION_FLASH_BASE + 0x6000u)
+#define PARTITION_APP1_SIZE       0x4800u
+#define PARTITION_APP1_END        (PARTITION_APP1_START + PARTITION_APP1_SIZE - 1u)
+
+#define PARTITION_APP2_START      (PARTITION_FLASH_BASE + 0xA800u)
+#define PARTITION_APP2_SIZE       0x5800u
+#define PARTITION_APP2_END        (PARTITION_APP2_START + PARTITION_APP2_SIZE - 1u)
+
+#define PARTITION_UPDATE_FLAG_START PARTITION_APP2_START
+#define PARTITION_UPDATE_FLAG_SIZE  PARTITION_PAGE_SIZE
+
+#define PARTITION_SRAM_BASE       0x20000000u
+#define PARTITION_SRAM_SIZE       0x5000u
+#define PARTITION_SRAM_END        (PARTITION_SRAM_BASE + PARTITION_SRAM_SIZE)
+
+/* 兼容旧代码命名；新代码优先使用上面的 PARTITION_*。 */
+#define stm32_flash_saddr         PARTITION_FLASH_BASE
+#define stm32_page_size           PARTITION_PAGE_SIZE
+#define stm32_page_num            PARTITION_FLASH_PAGES
+#define stm32_b_saddr             PARTITION_BOOT_START
+#define stm32_b_size              PARTITION_BOOT_SIZE
+#define stm32_b_eaddr             PARTITION_BOOT_END
+#define stm32_f_saddr             PARTITION_FACTORY_START
+#define stm32_f_size              PARTITION_FACTORY_SIZE
+#define stm32_f_eaddr             PARTITION_FACTORY_END
+#define stm32_a_saddr             PARTITION_APP1_START
+#define stm32_a_size              PARTITION_APP1_SIZE
+#define stm32_a_eaddr             PARTITION_APP1_END
+#define sram_begin                PARTITION_SRAM_BASE
+#define sram_end                  PARTITION_SRAM_END
+
+#endif

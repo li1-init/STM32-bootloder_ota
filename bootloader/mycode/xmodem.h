@@ -14,4 +14,7 @@
  */
 int xmodem_receive(uint32_t *out_len, uint32_t *out_crc32);
 
+/* 选择接收源：0 = USART1(PC)，1 = USART2(ESP32) */
+void xmodem_set_source(uint8_t src);
+
 #endif

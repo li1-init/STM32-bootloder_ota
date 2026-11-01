@@ -127,6 +127,7 @@ int factory_xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
 {
     static uint8_t blk[X_BLOCK];
     uint16_t blk_used = 0u;
+    uint8_t  expected_blk = 1u;
     uint32_t written = 0u;
     uint32_t crc_run = 0xFFFFFFFFu;
     uint32_t last_c = 0xFFFFFFFFu;
@@ -210,6 +211,17 @@ int factory_xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
                 u1_putc(X_NAK);
                 continue;
             }
+            /* ACK lost: retransmitted previous block must not append again. */
+            if ((written + blk_used) > 0u && (uint8_t)b1 == (uint8_t)(expected_blk - 1u))
+            {
+                u1_putc(X_ACK);
+                continue;
+            }
+            if ((uint8_t)b1 != expected_blk)
+            {
+                u1_putc(X_NAK);
+                continue;
+            }
             if (pkt > X_PKT_MAX || (written + blk_used + pkt) > APP_SIZE)
             {
                 FLASH_Lock();
@@ -285,6 +297,7 @@ int factory_xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
                 }
             }
 
+            expected_blk++;
             u1_putc(X_ACK);
             u1_printf("\r  blk=%3u  %lu bytes", (unsigned)(uint8_t)b1, (unsigned long)(written + blk_used));
         }

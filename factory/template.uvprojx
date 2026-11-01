@@ -340,7 +340,7 @@
               <MiscControls>--no-multibyte-chars</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\std_periph_driver\inc;.\user;.\mycode;.\mydrive</IncludePath>
+              <IncludePath>..\common;..\common\drivers;.\std_periph_driver\inc;.\user;.\mycode;.\mydrive</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -672,7 +672,7 @@
             <File>
               <FileName>app_update.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mycode\app_update.c</FilePath>
+              <FilePath>..\common\app_update.c</FilePath>
             </File>
             <File>
               <FileName>struct_init.h</FileName>

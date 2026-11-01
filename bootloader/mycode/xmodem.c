@@ -6,6 +6,7 @@
 #include "ota_info.h"
 #include "W25Q64.h"
 #include "xmodem.h"
+#include "my_usart2.h"
 
 /*
  * ============================================================
@@ -56,6 +57,26 @@ static uint16_t x_crc16(const uint8_t *p, uint16_t n)
     return crc;
 }
 
+/* 0 = USART1(PC), 1 = USART2(ESP32) */
+static uint8_t s_src = 0u;
+
+void xmodem_set_source(uint8_t src)
+{
+    s_src = src;
+}
+
+static void x_putc(uint8_t c)
+{
+    if (s_src == 1u)
+    {
+        usart2_putc(c);
+    }
+    else
+    {
+        u1_putc(c);
+    }
+}
+
 static int x_getc(uint32_t ms)
 {
     uint32_t t0 = get_now();
@@ -63,7 +84,7 @@ static int x_getc(uint32_t ms)
 
     while ((get_now() - t0) < ms)
     {
-        c = usart_ota_getchar();
+        c = (s_src == 1u) ? usart2_getchar() : usart_ota_getchar();
         if (c >= 0)
         {
             return c;
@@ -77,6 +98,7 @@ int xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
     static ota_info_t info;
     static uint8_t  data[X_PKT_MAX];
     uint16_t last_pkt = 0u;
+    uint8_t  expected_blk = 1u;
     uint32_t written = 0;
     uint32_t crc_run = 0xFFFFFFFFu;
     uint32_t last_c = 0xFFFFFFFFu;
@@ -109,20 +131,27 @@ int xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
         return -1;
     }
 
-    /* 清空两个接收缓冲：菜单里按 '1' 的残余字符不能进 XMODEM */
-    usart_ota_flush();
-    usart_boot_rx_flush();
+    /* 濞撳懐鈹栨稉銈勯嚋閹恒儲鏁圭紓鎾冲暱閿涙俺褰嶉崡鏇㈠櫡閹?'1' 閻ㄥ嫭鐣担娆忕摟缁楋缚绗夐懗鍊熺箻 XMODEM */
+    if (s_src == 1u)
+    {
+        usart2_flush();
+    }
+    else
+    {
+        usart_ota_flush();
+        usart_boot_rx_flush();
+    }
 
     u1_printf("XMODEM: ready (128B CRC), send file now\r\n");
 
     for (;;)
     {
-        /* 首帧之前，每 X_C_WAIT ms 发一个 'C' */
+        /* 妫ｆ牕鎶氭稊瀣閿涘本鐦?X_C_WAIT ms 閸欐垳绔存稉?'C' */
         if (written == 0u)
         {
             if ((get_now() - last_c) >= X_C_WAIT)
             {
-                u1_putc(X_CRC_C);
+                x_putc(X_CRC_C);
                 last_c = get_now();
             }
         }
@@ -135,7 +164,7 @@ int xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
 
         if ((uint8_t)c == X_EOT)
         {
-            u1_putc(X_ACK);
+            x_putc(X_ACK);
             break;
         }
         if ((uint8_t)c == X_CAN)
@@ -145,11 +174,11 @@ int xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
         }
         if ((uint8_t)c == X_CRC_C || (uint8_t)c == X_ACK || (uint8_t)c == X_NAK)
         {
-            continue; /* 可能是回显 */
+            continue; /* 閸欘垵鍏橀弰顖氭礀閺?*/
         }
         if ((uint8_t)c != X_SOH && (uint8_t)c != X_STX)
         {
-            continue; /* 不是帧头 */
+            continue; /* 娑撳秵妲哥敮褍銇?*/
         }
 
         /* BLCK + ~BLCK + DATA + CRC */
@@ -161,18 +190,29 @@ int xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
 
             if (b1 < 0 || b2 < 0)
             {
-                u1_putc(X_NAK);
+                x_putc(X_NAK);
                 continue;
             }
             if (((uint8_t)b1 ^ (uint8_t)b2) != 0xFFu)
             {
-                u1_putc(X_NAK);
+                x_putc(X_NAK);
+                continue;
+            }
+            /* ACK lost: sender retransmits previous block; ACK it, do not rewrite. */
+            if (written > 0u && (uint8_t)b1 == (uint8_t)(expected_blk - 1u))
+            {
+                x_putc(X_ACK);
+                continue;
+            }
+            if ((uint8_t)b1 != expected_blk)
+            {
+                x_putc(X_NAK);
                 continue;
             }
             if (pkt > X_PKT_MAX || (written + pkt) > OTA_STAGING_SIZE)
             {
-                u1_putc(X_CAN);
-                u1_putc(X_CAN);
+                x_putc(X_CAN);
+                x_putc(X_CAN);
                 u1_printf("\r\nXMODEM: packet too large\r\n");
                 return -1;
             }
@@ -188,7 +228,7 @@ int xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
             }
             if (i < pkt || c < 0)
             {
-                u1_putc(X_NAK);
+                x_putc(X_NAK);
                 continue;
             }
 
@@ -199,28 +239,29 @@ int xmodem_receive(uint32_t *out_len, uint32_t *out_crc32)
 
                 if (hi < 0 || lo < 0)
                 {
-                    u1_putc(X_NAK);
+                    x_putc(X_NAK);
                     continue;
                 }
                 crc_recv = (uint16_t)(((uint16_t)hi << 8) | (uint16_t)lo);
                 if (x_crc16(data, pkt) != crc_recv)
                 {
-                    u1_putc(X_NAK);
+                    x_putc(X_NAK);
                     continue;
                 }
             }
 
             if (W25Q64_Write(OTA_STAGING_ADDR + written, data, pkt) != W25Q64_OK)
             {
-                u1_putc(X_CAN);
+                x_putc(X_CAN);
                 u1_printf("\r\nXMODEM: W25Q64 write fail at %lu\r\n", (unsigned long)written);
                 return -1;
             }
             crc_run = ota_crc32_update(crc_run, data, pkt);
             written += pkt;
             last_pkt = pkt;
+            expected_blk++;
 
-            u1_putc(X_ACK);
+            x_putc(X_ACK);
             u1_printf("\r  blk=%3u  %lu bytes", (unsigned)(uint8_t)b1, (unsigned long)written);
         }
     }

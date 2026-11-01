@@ -340,7 +340,7 @@
               <MiscControls>--no-multibyte-chars</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\std_periph_driver\inc;.\user;.\mycode;.\mydrive</IncludePath>
+              <IncludePath>..\common;..\common\drivers;.\std_periph_driver\inc;.\user;.\mycode;.\mydrive</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -672,7 +672,7 @@
             <File>
               <FileName>ota_info.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mycode\ota_info.c</FilePath>
+              <FilePath>..\common\ota_info.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -692,12 +692,12 @@
             <File>
               <FileName>MySPI.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mydrive\MySPI.c</FilePath>
+              <FilePath>..\common\drivers\MySPI.c</FilePath>
             </File>
             <File>
               <FileName>W25Q64.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mydrive\W25Q64.c</FilePath>
+              <FilePath>..\common\drivers\W25Q64.c</FilePath>
             </File>
           </Files>
         </Group>
