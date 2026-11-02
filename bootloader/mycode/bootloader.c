@@ -26,7 +26,7 @@ typedef void (*jumpapp_fun)(void);
 
 uint8_t app_is_valid(uint32_t base, uint32_t size)
 {
-    uint32_t msp_value  = *(volatile uint32_t *)base;
+    uint32_t msp_value = *(volatile uint32_t *)base;
     uint32_t reset_addr = *(volatile uint32_t *)(base + 4u);
 
     /* MSP: 4-byte aligned and inside SRAM */
@@ -44,7 +44,7 @@ uint8_t app_is_valid(uint32_t base, uint32_t size)
 
 void jump_to_addr(uint32_t base, uint32_t size)
 {
-    uint32_t app_msp_value  = *(volatile uint32_t *)base;
+    uint32_t app_msp_value = *(volatile uint32_t *)base;
     uint32_t app_reset_addr = *(volatile uint32_t *)(base + 4u);
     jumpapp_fun app_reset_handler;
 
@@ -76,7 +76,7 @@ void jump_to_addr(uint32_t base, uint32_t size)
 
     SysTick->CTRL = 0x00;
     SysTick->LOAD = 0x00;
-    SysTick->VAL  = 0x00;
+    SysTick->VAL = 0x00;
 
     SCB->VTOR = base;
     __DSB();
@@ -108,10 +108,9 @@ void jump_to_factory(void)
 
 #define OTA_COPY_BUF_SIZE 1024u
 
-
 int boot_copy_staging_to_app(uint32_t fw_len, uint32_t fw_crc32)
 {
-    uint8_t  buf[OTA_COPY_BUF_SIZE];
+    uint8_t buf[OTA_COPY_BUF_SIZE];
     uint32_t offset = 0;
     uint32_t crc;
     uint32_t addr;
@@ -203,7 +202,7 @@ int boot_copy_staging_to_app(uint32_t fw_len, uint32_t fw_crc32)
 
 uint32_t boot_staging_crc32(uint32_t len)
 {
-    uint8_t  buf[OTA_COPY_BUF_SIZE];
+    uint8_t buf[OTA_COPY_BUF_SIZE];
     uint32_t crc = 0xFFFFFFFFu;
     uint32_t off = 0;
 
@@ -220,13 +219,14 @@ uint32_t boot_staging_crc32(uint32_t len)
 uint8_t boot_main_process(void)
 {
     ota_info_t info;
-    uint32_t   crc;
-
+    uint32_t crc;
+    // 从存储（Flash/RTC备份域）加载OTA升级信息结构体
     if (ota_info_load(&info) != 0)
     {
         u1_printf("Boot: no valid OTA info\r\n");
         return 0;
     }
+    // 判断升级标志，不是【待升级】状态，直接退出，正常跑原有APP
     if (info.flag != ota_flag_set)
     {
         return 0;
@@ -234,13 +234,13 @@ uint8_t boot_main_process(void)
 
     u1_printf("Boot: OTA task len=%lu crc=0x%08lX\r\n",
               (unsigned long)info.fw_len, (unsigned long)info.fw_crc32);
-
+    // 合法性检查：固件长度为0，或者超过APP分区最大容量，拒绝升级
     if (info.fw_len == 0u || info.fw_len > stm32_a_size)
     {
         u1_printf("Boot: bad fw_len, keep flag\r\n");
         return 0;
     }
-
+    // 读取W25Q暂存区(staging)里的固件，计算整包CRC32，与OTA信息里预先保存的CRC对比，不一致=固件损坏，不刷写APP区
     crc = boot_staging_crc32(info.fw_len);
     if (crc != info.fw_crc32)
     {
@@ -248,15 +248,16 @@ uint8_t boot_main_process(void)
                   (unsigned long)crc, (unsigned long)info.fw_crc32);
         return 0;
     }
-
+    // 把外部W25Q暂存区的固件拷贝擦写进STM32内部APP Flash分区
     if (boot_copy_staging_to_app(info.fw_len, info.fw_crc32) != 0)
     {
         u1_printf("Boot: copy failed, keep flag\r\n");
         return 0;
     }
-
+    // 升级成功：清除升级标记，版本号更新为新版本
     info.flag = 0;
     info.version = info.target_version;
+    // 把更新后的OTA信息保存回存储，下次开机不再重复升级
     (void)ota_info_save(&info);
     u1_printf("Boot: upgrade done, flag cleared\r\n");
     return 1;
